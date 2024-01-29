@@ -10,7 +10,7 @@ CREATE TABLE if not exists user_table(
 );
 
 insert into user_table(id, email, password, first_name, last_name)
-values (1, 'petrov@ads.rh', '1234asa', 'Павел', 'Петров'),
+values(1, 'petrov@ads.rh', '1234asa', 'Павел', 'Петров'),
 (2, 'test', 'test', 'test', 'test');
 
 

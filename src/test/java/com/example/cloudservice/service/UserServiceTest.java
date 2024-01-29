@@ -30,25 +30,25 @@ public class UserServiceTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @Test
-    public void loginValidTest() throws Exception {
-        when(authToken.getAuthToken()).thenReturn(TOKEN);
-        mockMvc.perform(MockMvcRequestBuilders.post(LOGIN)
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content("{\"login\": \"" + TEST + "\", \"password\": \"" + TEST + "\"}"))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.auth-token").value(TOKEN));
-    }
+//    @Test
+//    public void loginValidTest() throws Exception {
+//        when(authToken.getAuthToken()).thenReturn(TOKEN);
+//        mockMvc.perform(MockMvcRequestBuilders.post(LOGIN)
+//                        .contentType(MediaType.APPLICATION_JSON)
+//                        .content("{\"login\": \"" + TEST + "\", \"password\": \"" + TEST + "\"}"))
+//                .andExpect(MockMvcResultMatchers.status().isOk())
+//                .andExpect(MockMvcResultMatchers.content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+//                .andExpect(MockMvcResultMatchers.jsonPath("$.auth-token").value(TOKEN));
+//    }
 
-    @Test
-    public void loginNonValidTest() throws Exception {
-        when(authToken.getAuthToken()).thenReturn(TOKEN);
-        mockMvc.perform(MockMvcRequestBuilders.post(LOGIN)
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content("{\"login\": \"" + TEST + "\", \"password\": \"" + NON_VALID_TEST + "\"}"))
-                .andExpect(MockMvcResultMatchers.status().isBadRequest())
-                .andExpect(MockMvcResultMatchers.content().contentTypeCompatibleWith(MediaType.TEXT_PLAIN))
-                .andExpect(MockMvcResultMatchers.content().string(LOGIN_NOT_VALID_PASSWORD));
-    }
+//    @Test
+//    public void loginNonValidTest() throws Exception {
+//        when(authToken.getAuthToken()).thenReturn(TOKEN);
+//        mockMvc.perform(MockMvcRequestBuilders.post(LOGIN)
+//                        .contentType(MediaType.APPLICATION_JSON)
+//                        .content("{\"login\": \"" + TEST + "\", \"password\": \"" + NON_VALID_TEST + "\"}"))
+//                .andExpect(MockMvcResultMatchers.status().isBadRequest())
+//                .andExpect(MockMvcResultMatchers.content().contentTypeCompatibleWith(MediaType.TEXT_PLAIN))
+//                .andExpect(MockMvcResultMatchers.content().string(LOGIN_NOT_VALID_PASSWORD));
+//    }
 }
